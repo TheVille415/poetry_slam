@@ -1,3 +1,4 @@
+import random
 # Function to get the lines from our text file
 def get_file_lines(filename):
     #open and reads the lines of the file we insert
@@ -5,8 +6,8 @@ def get_file_lines(filename):
     return file_line
     file_line.close()
     
-print(get_file_lines("poem.txt"))
-
+print(get_file_lines("/Users/Jordan/dev/Make School Courses/CS-1.0-Introduction-To-Programming/Assignments/Poetry Slam/poem.txt"))
+# -----------------------------------------------------
 # Function to print the lines from our text file backwards
 def lines_printed_backwards(lines_list):
     #takes the file and flips whats inside
@@ -19,8 +20,22 @@ def lines_printed_backwards(lines_list):
         reverse = str(line_number - i) + " " + lines_list[i]
         print(reverse)
 #variable to open the file
-poem = open('poem.txt', 'r')
-#open, read, split, and closes the file we give 
+poem = open('/Users/Jordan/dev/Make School Courses/CS-1.0-Introduction-To-Programming/Assignments/Poetry Slam/poem.txt', 'r')
+#open, read, split the lines from the file, and closes the file we give 
 lines_printed_backwards(poem.read().splitlines())
 poem.close()
 
+# -----------------------------------------------------
+#Function to print the lines from our text file randomly
+def lines_printed_random(lines_list):
+    lines_list_length = len(lines_list)
+    for i in range(lines_list_length):
+        random_line = lines_list[random.randint(i, lines_list_length -1)]
+        print(random_line)
+
+#variable to open the file
+poem = open('/Users/Jordan/dev/Make School Courses/CS-1.0-Introduction-To-Programming/Assignments/Poetry Slam/poem.txt', 'r')
+#open, read, split the lines from the file, and closes the file we give 
+lines_printed_random(poem.read().splitlines())
+poem.close()
+# -----------------------------------------------------
